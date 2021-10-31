@@ -57,9 +57,6 @@ set undodir=~/.vim/undodir
 set undofile
 set incsearch
  
-" set colorcolumn=80
- 
-" colorscheme gruvbox 
 set background=dark
  
 set ts=4 sw=4
