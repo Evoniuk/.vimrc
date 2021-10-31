@@ -94,3 +94,4 @@ set laststatus=2
 :map wq :wq<Return>
 :map ,. :q!<Return>
 :map ,n :!node %<Return>
+:map ,c :!clang %<Return>
