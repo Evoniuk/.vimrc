@@ -2,7 +2,6 @@ if v:progname =~? "evim"
   finish
 endif
  
-" Get the defaults that most users want.
 source $VIMRUNTIME/defaults.vim
  
 if has("vms")
@@ -27,8 +26,6 @@ augroup vimrcEx
   autocmd FileType text setlocal textwidth=78
 augroup END
  
-" Add optional packages.
-"
 " The matchit plugin makes the % command work better, but it is not backwards
 " compatible.
 " The ! means the package won't be loaded right away but when plugins are
@@ -37,10 +34,7 @@ if has('syntax') && has('eval')
   packadd! matchit
 endif
  
-" number lines
 set number
- 
-" ThePrimeagean presets
  
 syntax on
 set noerrorbells
@@ -61,7 +55,7 @@ set background=dark
  
 set ts=4 sw=4
 
-" STATUSLINE STUFF:
+" STATUSLINE STUFF
 
 function! GitBranch()
   return system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
@@ -72,18 +66,22 @@ function! StatuslineGit()
   return strlen(l:branchname) > 0?'  '.l:branchname.' ':''
 endfunction
 
+" put current git branch on statusline
 set statusline=
 set statusline+=%#MatchParen#
 set statusline+=%{StatuslineGit()}
 set statusline+=%#LineNr#
 
+" put file name with modification status
 set statusline+=%#StatusLine#
 set statusline+=\ %f
 set statusline+=%m\ 
 
+" put current column and hex value of current char
 set statusline+=%=
 set statusline+=\ %c\ \|\ %B\ 
 
+" put total lines and encoding
 set statusline+=%#MatchParen#
 set statusline+=\ %L\ \| 
 set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
