@@ -91,6 +91,8 @@ set laststatus=2
 
 " MAPPINGS
 
-:map wq :wq<Return>
-:map ,. :q!<Return>
-:map ,n :!node %<Return>
+:map '' :wq<Return>
+:map ;; :w<Return>
+:map ;' $
+:map '; 0
+:map Y y$
