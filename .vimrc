@@ -1,7 +1,7 @@
 if v:progname =~? "evim"
   finish
 endif
- 
+
 source $VIMRUNTIME/defaults.vim
  
 if has("vms")
@@ -96,3 +96,5 @@ set laststatus=2
 :map ;' $
 :map '; 0
 :map Y y$
+:imap ., <Esc>
+:nmap ,. i
