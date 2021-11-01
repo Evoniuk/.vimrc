@@ -98,3 +98,5 @@ set laststatus=2
 :map Y y$
 :imap ., <Esc>
 :nmap ,. i
+:map ;. G
+:map .; gg
