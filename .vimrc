@@ -91,12 +91,17 @@ set laststatus=2
 
 " MAPPINGS
 
-:map '' :wq<Return>
-:map ;; :w<Return>
+:nmap <Bslash><Bslash> :w<Return>
+:nmap <bar><bar> :wq<Return>
+
+:nmap ,. i
+:imap ., <Esc>
+
+:map Y y$
+
 :map ;' $
 :map '; 0
-:map Y y$
-:imap ., <Esc>
-:nmap ,. i
 :map ;. G
 :map .; gg
+:nmap .. <C-f>
+:nmap ;; <C-b>
