@@ -42,8 +42,7 @@ set tabstop=4 softtabstop=4
 set shiftwidth=4
 set expandtab
 set smartindent
-set nu
-set nowrap
+"set textwidth=79
 set smartcase
 set noswapfile
 set nobackup
@@ -105,3 +104,9 @@ set laststatus=2
 :map .; gg
 :nmap .. <C-f>
 :nmap ;; <C-b>
+
+:nmap j gj
+:nmap k gk
+
+:nmap oo o<Esc>k
+:nmap OO O<Esc>j
