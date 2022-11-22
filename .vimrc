@@ -108,5 +108,6 @@ set laststatus=2
 :nmap j gj
 :nmap k gk
 
-:nmap oo o<Esc>k
-:nmap OO O<Esc>j
+:nmap <C-o> o<Esc>k
+:nmap <C-i> O<Esc>j
+
