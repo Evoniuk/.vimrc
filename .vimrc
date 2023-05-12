@@ -33,8 +33,23 @@ augroup END
 if has('syntax') && has('eval')
   packadd! matchit
 endif
+
+" enable italics
+let &t_ZH="\e[3m"
+let &t_ZR="\e[23m"
  
+" relative numbering by default, absolute numbering 
+" when window loses focus or in insert mode
 set number
+
+:augroup numbertoggle
+:  autocmd!
+:  autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu && mode() != "i" | set rnu   | endif
+:  autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu                  | set nornu | endif
+:augroup END
+
+" enable line number in file explorer
+let g:netrw_bufsettings = 'noma nomod nu nowrap ro nobl'
  
 syntax on
 set noerrorbells
@@ -42,7 +57,6 @@ set tabstop=4 softtabstop=4
 set shiftwidth=4
 set expandtab
 set smartindent
-"set textwidth=79
 set smartcase
 set noswapfile
 set nobackup
@@ -51,6 +65,7 @@ set undofile
 set incsearch
  
 set background=dark
+colorscheme newelf
  
 set ts=4 sw=4
 
@@ -93,21 +108,20 @@ set laststatus=2
 :nmap <Bslash><Bslash> :w<Return>
 :nmap <bar><bar> :wq<Return>
 
-:nmap ,. i
-:imap ., <Esc>
-
 :map Y y$
 
-:map ;' $
-:map '; 0
-:map ;. G
-:map .; gg
-:nmap .. <C-f>
-:nmap ;; <C-b>
-
+" use j and k to traverse displayed lines (e.g. when lines wrap)
 :nmap j gj
 :nmap k gk
 
 :nmap <C-o> o<Esc>k
-:nmap <C-i> O<Esc>j
 
+":map ;' $
+":map '; 0
+":map ;. G
+":map .; gg
+":nmap .. <C-f>
+":nmap ;; <C-b>
+
+":nmap ,. i
+":imap ., <Esc>
